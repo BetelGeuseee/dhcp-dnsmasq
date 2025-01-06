@@ -161,7 +161,13 @@ To test the DHCP server setup, follow these steps to create virtual network inte
 
    You should see both `raspberry` and `mindray` interfaces listed.
 
-3. **Use the MAC Address from the `mindray` Interface and Map it to IP in Rust Config**
+3. **Assign ip addresses to both interfaces
+   ```bash
+   sudo ip addr add 192.168.50.1/24 dev mindray
+   sudo ip addr add 192.169.50.2/24 dev raspberry
+   ```
+
+4. **Use the MAC Address from the `mindray` Interface and Map it to IP in Rust Config**
 
     - Retrieve the MAC address of the `mindray` interface:
 
@@ -186,20 +192,20 @@ To test the DHCP server setup, follow these steps to create virtual network inte
         ip = "192.168.50.101"
         ```
 
-4. **Bring Up the Interfaces**
+6. **Bring Up the Interfaces**
 
     ```bash
     sudo ip link set mindray up
     sudo ip link set raspberry up
     ```
 
-5. **Install DHCP Client**
+7. **Install DHCP Client**
 
     ```bash
     sudo apt-get install isc-dhcp-client
     ```
 
-6. **Send DHCP Request from `mindray` Interface**
+8. **Send DHCP Request from `mindray` Interface**
 
     ```bash
     sudo dhclient mindray
@@ -207,7 +213,7 @@ To test the DHCP server setup, follow these steps to create virtual network inte
 
    This will send a DHCP request from the `mindray` interface and should receive an IP address based on your `Config.toml` settings.
 
-7. **Verify the IP Address Assignment**
+9. **Verify the IP Address Assignment**
 
     ```bash
     ip addr show mindray
@@ -215,7 +221,7 @@ To test the DHCP server setup, follow these steps to create virtual network inte
 
    Ensure that `mindray` has been assigned the correct IP address as per your static lease configuration (e.g., `192.168.50.101`).
 
-8. **Clean Up the veth Pair**
+10. **Clean Up the veth Pair**
 
    After testing, delete the `mindray` interface. Both ends of the veth pair (`raspberry` and `mindray`) will be removed:
 
