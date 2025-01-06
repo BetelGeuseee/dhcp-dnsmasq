@@ -161,7 +161,7 @@ To test the DHCP server setup, follow these steps to create virtual network inte
 
    You should see both `raspberry` and `mindray` interfaces listed.
 
-3. **Assign ip addresses to both interfaces
+3. **Assign ip addresses to both interfaces**
    ```bash
    sudo ip addr add 192.168.50.1/24 dev mindray
    sudo ip addr add 192.169.50.2/24 dev raspberry
