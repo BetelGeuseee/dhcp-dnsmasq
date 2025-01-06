@@ -1,0 +1,45 @@
+
+[dhcp_config]
+conf = "/etc/dnsmasq.conf"
+port = 5353
+
+# ==========================
+# dnsmasq Configuration File
+# ==========================
+
+# Define the network interfaces to be managed by dnsmasq
+[[interfaces]]
+# Name of the network interface (e.g., eth0)
+name = "enp2s0"
+
+# Whether to bind dnsmasq explicitly to the interface
+bind_interfaces = true
+
+# DHCP range in the format: start_ip, end_ip, lease_time
+dhcp_range = "192.168.50.10,192.168.50.100,12h"
+
+# List of static DHCP leases based on MAC addresses
+[[interfaces.static_leases]]
+# MAC address of the device
+mac = "00:11:22:33:44:55"
+
+# Reserved IP address for the device
+ip = "192.168.50.50"
+
+[[interfaces.static_leases]]
+mac = "66:77:88:99:AA:BB"
+ip = "192.168.50.51"
+
+# ==========================
+# Additional Interfaces (Optional)
+# ==========================
+# To manage multiple interfaces, replicate the [[interfaces]] table.
+
+# [[interfaces]]
+# name = "eth1"
+# bind_interfaces = true
+# dhcp_range = "192.168.51.10,192.168.51.100,12h"
+
+# [[interfaces.static_leases]]
+# mac = "CC:DD:EE:FF:00:11"
+# ip = "192.168.51.50"
