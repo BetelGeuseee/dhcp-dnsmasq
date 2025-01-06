@@ -1,7 +1,7 @@
 
 [dhcp_config]
 conf = "/etc/dnsmasq.conf"
-port = 5353
+port = 0 #disable dns in dnsmasq
 
 # ==========================
 # dnsmasq Configuration File
@@ -10,25 +10,25 @@ port = 5353
 # Define the network interfaces to be managed by dnsmasq
 [[interfaces]]
 # Name of the network interface (e.g., eth0)
-name = "enp2s0"
+name = "raspberry"
 
 # Whether to bind dnsmasq explicitly to the interface
 bind_interfaces = true
 
 # DHCP range in the format: start_ip, end_ip, lease_time
-dhcp_range = "192.168.50.10,192.168.50.100,12h"
+dhcp_range = "192.168.50.50,192.168.50.150,12h"
 
 # List of static DHCP leases based on MAC addresses
 [[interfaces.static_leases]]
 # MAC address of the device
-mac = "00:11:22:33:44:55"
+mac = "92:01:c8:a9:b2:c0"
 
 # Reserved IP address for the device
-ip = "192.168.50.50"
+ip = "192.168.50.100"
 
-[[interfaces.static_leases]]
-mac = "66:77:88:99:AA:BB"
-ip = "192.168.50.51"
+#[[interfaces.static_leases]]
+#mac = "11:22:33:44:55:66"
+#ip = "192.168.50.101"
 
 # ==========================
 # Additional Interfaces (Optional)
