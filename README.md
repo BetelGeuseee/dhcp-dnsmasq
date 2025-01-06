@@ -11,8 +11,7 @@ A simple DHCP server written in Rust that leverages `dnsmasq` for managing DHCP 
 - [Usage](#usage)
 - [Testing](#testing)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -32,8 +31,7 @@ A simple DHCP server written in Rust that leverages `dnsmasq` for managing DHCP 
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/dhcp-server.git
-    cd dhcp-server
+    git clone https://github.com/BetelGeuseee/dhcp-dnsmasq.git
     ```
 
 2. **Install Dependencies**
@@ -244,4 +242,3 @@ dhcp-server/
 
 ---
 
-*Feel free to customize this README to better fit your project’s specifics and repository.*
